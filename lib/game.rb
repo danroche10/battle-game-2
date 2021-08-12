@@ -2,16 +2,30 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2
+  attr_reader :player_1, :player_2, :whos_turn
 
   def initialize( player_class1:, player_class2: )
     @player_1 = player_class1
     @player_2 = player_class2
+    @starting_player = [@player_1, @player_2].sample
+    @whos_turn = @starting_player
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack(victim)
+    victim.receive_damage
+    change_turn(victim)
   end
+
+  def victim
+    whos_turn == @player_1 ? @player_2 : @player_1
+  end
+
+  def change_turn(player)
+    @whos_turn = player
+  end
+
+
+
 end
 
 # player1 = Player.new("Hotu")
@@ -21,3 +35,4 @@ end
 # puts player2.hit_points
 # my_game.attack(player1)
 # puts player1.hit_points
+# "It is #{player.name}'s turn" : "It is #{@game.player.name}'s turn"
