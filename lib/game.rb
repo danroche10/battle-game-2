@@ -2,15 +2,15 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player1, :player2
+  attr_reader :player_1, :player_2
 
   def initialize( player_class1:, player_class2: )
-    @player1 = player_class1
-    @player2 = player_class2
+    @player_1 = player_class1
+    @player_2 = player_class2
   end
 
   def attack(player)
-    player == @player1 ? @player1.receive_damage : @player2.receive_damage
+    player.receive_damage
   end
 end
 
