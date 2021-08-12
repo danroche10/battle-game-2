@@ -2,6 +2,8 @@ require 'player'
 
 describe Player do
 
+  DEFAULT_HP = 100
+
   let(:player1) { (described_class.new("Dan"))}
   let(:player2) { (described_class.new("Hotu"))}
 
@@ -13,18 +15,18 @@ describe Player do
 
   end
 
-  describe '#receive_damage' do
+  describe '#initialize' do
 
-    it 'takes hit points away from player' do
-      expect{ player1.receive_damage }.to change{ player1.hit_points }.by (-10)
+    it 'initializes the hits as 100' do
+      expect(player1.hit_points).to eq  DEFAULT_HP
     end
 
   end
 
-  describe '#attack' do
+  describe '#receive_damage' do
 
-    it 'is expected to attack player' do
-      expect{ player1.attack(player2) }.to change{ player2.hit_points }.by (-10)
+    it 'takes hit points away from player' do
+      expect{ player1.receive_damage }.to change{ player1.hit_points }.by (-10)
     end
 
   end
