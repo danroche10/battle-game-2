@@ -10,7 +10,7 @@ feature 'Attack a player' do
   scenario 'attack reduces hit points by 10' do
     sign_in_and_play
     click_button('ATTACK!')
-    expect(page).to have_content "hit points: 0"
+    expect(page).to have_content "hit points: 90"
   end
 
 end
