@@ -4,15 +4,17 @@ class Game
 
   attr_reader :player_1, :player_2, :whos_turn
 
+  DEFAULT_ATTACK = 10
+
   def initialize( player_class1:, player_class2: )
     @player_1 = player_class1
     @player_2 = player_class2
-    @starting_player = [@player_1, @player_2].sample
+    @starting_player = @player_1
     @whos_turn = @starting_player
   end
 
   def attack(victim)
-    victim.receive_damage
+    victim.receive_damage(DEFAULT_ATTACK)
     change_turn(victim)
   end
 
@@ -23,9 +25,6 @@ class Game
   def change_turn(player)
     @whos_turn = player
   end
-
-
-
 end
 
 # player1 = Player.new("Hotu")

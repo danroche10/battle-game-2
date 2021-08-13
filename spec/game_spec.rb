@@ -8,7 +8,7 @@ describe Game do
 
   describe '#attack' do
     it 'player1 attacks player2 damages the player' do
-      expect(player2).to receive(:receive_damage)
+      expect(player2).to receive(:receive_damage).with(Game::DEFAULT_ATTACK)
       game.attack(player2)
     end
   end
