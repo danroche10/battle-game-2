@@ -18,9 +18,15 @@ feature 'Attack a player' do
     end
   end
 
-  # scenario 'attack reduces hit points by 10' do
-  #   sign_in_and_play
-  #   expect(page).to have_content "hit points: 90"
-  # end
+  feature "shows victim's hit points" do
+    scenario 'P1 attacks, can see P2 hit points' do
+      expect(page).to have_content "Ed's hit points: 90"
+    end
 
+    scenario 'P2 attacks, can see P1 hit points' do
+      click_button('Back')
+      click_button('ATTACK!')
+      expect(page).to have_content "Dan's hit points: 90"
+    end
+  end
 end
