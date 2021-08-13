@@ -2,7 +2,7 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :whos_turn, :starting_player
+  attr_reader :player_1, :player_2, :whos_turn, :starting_player, :game
 
   DEFAULT_ATTACK = 10
 
@@ -11,6 +11,15 @@ class Game
     @player_2 = player_class2
     @starting_player = @player_1
     @whos_turn = @starting_player
+    @game
+  end
+
+  def self.game(player_1, player_2)
+    @game = Game.new( player_class1: player_1, player_class2: player_2 )
+  end
+
+  def self.game_instance
+    @game
   end
 
   def attack(victim)
