@@ -35,7 +35,6 @@ describe Game do
     end
   end
 
-
   describe "#victim" do
     it "should say player 2 is the victim to start" do
       expect(game.victim).to eq(game.player_2)

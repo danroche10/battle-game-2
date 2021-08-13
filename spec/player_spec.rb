@@ -1,10 +1,8 @@
 require 'player'
 
-
 describe Player do
   let(:player1) { (described_class.new("Dan"))}
   let(:player2) { (described_class.new("Hotu"))}
-
 
   describe '#initialize' do
     it "initializes with name Dan" do
