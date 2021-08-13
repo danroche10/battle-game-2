@@ -2,7 +2,7 @@ require_relative 'player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :whos_turn
+  attr_reader :player_1, :player_2, :whos_turn, :starting_player
 
   DEFAULT_ATTACK = 10
 
