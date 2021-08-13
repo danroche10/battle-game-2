@@ -1,5 +1,13 @@
 <h2><%= @game.victim.name %> attacked <%= @game.whos_turn.name %></h2>
+
+<% if @game.whos_turn.hit_points > 0 %>
 <h3><%= @game.whos_turn.name %>'s hit points: <%= @game.whos_turn.hit_points %></h3>
+<br>
 <form action="/play">
   <input type="submit" value="Back">
 </form>
+<% else %>
+<h3><%= @game.whos_turn.name %>'s hit points: <%= @game.whos_turn.hit_points %></h3>
+<br>
+<h3><%= @game.whos_turn.name %> has lost!</h3>
+<% end %>

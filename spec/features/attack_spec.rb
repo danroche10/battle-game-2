@@ -29,4 +29,20 @@ feature 'Attack a player' do
       expect(page).to have_content "Dan's hit points: 90"
     end
   end
+
+  feature "player loses" do
+    before do
+      click_button("Back")
+      17.times { attack_complete }
+      click_button("ATTACK!")
+    end
+
+    scenario "player 2 loses, we get confirmation of loss" do
+      expect(page).to have_content("Ed has lost!")
+    end
+
+    scenario "player 2 loses, there is no back button" do
+      expect(page).not_to have_button('Back')
+    end
+  end
 end
